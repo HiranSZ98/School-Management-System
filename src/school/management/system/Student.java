@@ -32,13 +32,15 @@ public class Student {
 
     //Not going to alter student's name, student's id.
 
+    public int getGrade() {
+        return grade;
+    }
+
     /**
      * used to update the student's name, student's id.
      * @param grade new grade of the student
      */
-    public void setGrade(int grade){
-        this.grade = grade;
-    }
+
 
     /**
      * keep adding the fees to feesPaid Field;
@@ -48,8 +50,40 @@ public class Student {
      *
      * @param fees that the student pays
      */
-    public void updateFeesPaid(int fees){
+    public void payFees(int fees){
         feesPaid += fees;
+        School.updateTotalMoneyEarned(feesPaid);
     }
 
+    public int getId() {
+        return id;
+    }
+
+    public void setGrade(int grade){
+        this.grade = grade;
+    }
+
+    /**
+     *
+     * @return
+     */
+    public String getName() {
+        return name;
+    }
+
+    public int getFeesPaid() {
+        return feesPaid;
+    }
+
+    public int getFeesTotal() {
+        return feesTotal;
+    }
+
+    /**
+     * Return the remaining feels
+     * @return
+     */
+    public int getRemainingFees() {
+        return feesTotal - feesPaid;
+    }
 }
